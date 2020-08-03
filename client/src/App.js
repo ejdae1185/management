@@ -70,10 +70,10 @@ class App extends Component{
       </TableHead>
       <TableBody>
       {this.state.customers ? this.state.customers.map(c=> {
-    return (  <Customer  key ={c.id} id = {c.id} name = {c.name} day ={c.day} age = {c.age} job={c.job}/> );
+    return (  <Customer  key ={c.id} id = {c.id} image = {c.image} name = {c.name} day ={c.day} age = {c.age} job={c.job}/> );
       }) :
       <TableRow>
-        <TableCell colSpan = "6" align= "center">
+        <TableCell colSpan = "5" align= "center">
           <CirucularPrograss className={classes.progress} variant="determinate" value ={ this.state.completed}/>
 
         </TableCell>
