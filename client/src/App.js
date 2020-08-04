@@ -62,18 +62,19 @@ class App extends Component{
       <TableHead>
         <TableRow>
           <TableCell>번호</TableCell>
-          <TableCell>학원명</TableCell>
-          <TableCell>형태</TableCell>
-          <TableCell>분야</TableCell>
-          <TableCell>주소</TableCell>
+          <TableCell>이미지</TableCell>
+          <TableCell>이름</TableCell>
+          <TableCell>생년월일</TableCell>
+          <TableCell>성별</TableCell>
+          <TableCell>직업</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
       {this.state.customers ? this.state.customers.map(c=> {
-    return (  <Customer  key ={c.id} id = {c.id} image = {c.image} name = {c.name} day ={c.day} age = {c.age} job={c.job}/> );
+    return (  <Customer  key ={c.id} id = {c.id} image = {c.image} name = {c.name} day ={c.day} day = {c.day} gender ={c.gender} job={c.job}/> );
       }) :
       <TableRow>
-        <TableCell colSpan = "5" align= "center">
+        <TableCell colSpan = "6" align= "center">
           <CirucularPrograss className={classes.progress} variant="determinate" value ={ this.state.completed}/>
 
         </TableCell>
