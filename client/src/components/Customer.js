@@ -14,6 +14,7 @@ render(){
                 <TableCell> {this.props.day} </TableCell>
                 <TableCell> {this.props.gender} </TableCell>
                 <TableCell> {this.props.job} </TableCell>
+                <TableCell> {this.props.adress} </TableCell>
         <TableCell><CustomerDelete stateRefresh={this.props.stateRefresh} id={this.props.id}/></TableCell>
 
         </TableRow>

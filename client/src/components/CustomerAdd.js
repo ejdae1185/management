@@ -4,7 +4,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
-import Typography from '@material-ui/core/Typography';
+
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
@@ -28,13 +28,15 @@ class CustomerAdd extends React.Component {
         this.state = {
             file: null,
             userName: '',
-            day: '',
-            gender: '',
-            job: '',
+            Type: '',
+            major: '',
+            address: '',
+            phone:'',
             fileName: '',
             open: false
-        }
+        
     }
+}
 
     handleFomrSumit = (e) => {
         e.preventDefault()
@@ -47,9 +49,10 @@ class CustomerAdd extends React.Component {
         this.setState({
             file: null,
             userName: '',
-            day: '',
-            gender: '',
-            job: '',
+            Type: '',
+            major: '',
+            address: '',
+            phone:'',
             fileName: ''
         })
 
@@ -73,9 +76,10 @@ class CustomerAdd extends React.Component {
         const formData = new FormData();
         formData.append('image', this.state.file);
         formData.append('name', this.state.userName);
-        formData.append('day', this.state.day);
-        formData.append('gender', this.state.gender);
-        formData.append('job', this.state.job);
+        formData.append('Type', this.state.Type);
+        formData.append('major', this.state.major);
+        formData.append('address', this.state.address);
+        formData.append('phone', this.state.phone);
         const config = {
             headers: {
                 'content-type': 'multipart/form-data'
@@ -96,9 +100,10 @@ class CustomerAdd extends React.Component {
         this.setState({
             file: null,
             userName: '',
-            day: '',
-            gender: '',
-            job: '',
+            Type: '',
+            major: '',
+            address: '',
+            phone:'',
             fileName: '',
             open: false
 
@@ -110,43 +115,32 @@ class CustomerAdd extends React.Component {
         const { classes } = this.props;
         return (
             <div>
-                <Button variant='contained' color="primary" onClick={this.handelOpen}>고객 추가하기
-             </Button>
-
-                <Dialog open={this.state.open} onClose={this.state.handleClose}>
-                    <DialogTitle>고객 추가</DialogTitle>
-                    <DialogContent>
-                        <input className={classes.hidden} accept="image/*" id="raised-button-file" type="file" file={this.state.file} value={this.state.fileName} onChange={this.handleFileChange} />
-                        <label htmlFor="raised-button-file">
-                            <Button variant="contaied" color="primary" component="span" name="file"></Button>
-                        </label>
-                        <br />
-                        <TextField label="이름" name="userName" value={this.state.userName} onChange={this.handleValueChange} /><br />
-                        <TextField label="생년월일" name="day" value={this.state.day} onChange={this.handleValueChange} /><br />
-                        <TextField label="성별" name="gender" value={this.state.gender} onChange={this.handleValueChange} /><br />
-                        <TextField label="직업" name="job" value={this.state.job} onChange={this.handleValueChange} /><br />
-
-                    </DialogContent>
-
-                    <DialogActions>
-                        <Button variant="contained" color="primary" onClick={this.handleFomrSumit}>추가</Button>
-                        <Button variant="outlined" color="#000000" onClick={this.handleClose}>닫기</Button>
-                    </DialogActions    >
-                </Dialog>
-
-            </div>
-            //  <form onSubmit = { this.handleFomrSumit }>
-            //      <h1>고객추가</h1>   
-            //      프로필 이미지: <input type = "file" name="file" file ={this.state.file} value = {this.state.fileName} onChange ={this.handleFileChange} /><br/>
-            //      이름: <input type ="text" name ="userName" value={this.state.userName} onChange={this.handleValueChange}/><br/>
-            //      생년월일: <input type ="text" name ="day" value={this.state.day} onChange={this.handleValueChange}/><br/>
-            //      성별: <input type ="text" name ="gender" value={this.state.gender} onChange={this.handleValueChange}/><br/>
-            //      직업: <input type ="text" name ="job" value={this.state.job} onChange={this.handleValueChange}/><br/>
-            //         <button type = "submit" > 추가하기</button>
-
-            //  </form>
-        )
+              <Button variant="contained" color="primary" onClick={this.handelOpen}>
+                고객 추가하기
+              </Button>
+              <Dialog open={this.state.open} onClose={this.handleClose}>
+                <DialogTitle>고객 추가</DialogTitle>
+                <DialogContent>
+                  <input className={classes.hidden} accept="image/*" id="raised-button-file" type="file" file={this.state.file} value={this.state.fileName} onChange={this.handleFileChange} />
+                  <label htmlFor="raised-button-file"> 
+                    <Button variant="contained" color="primary" component="span" name="file">
+                      {this.state.fileName === ''? "프로필 이미지 선택" : this.state.fileName}
+                    </Button>
+                  </label><br/><br/>
+              <TextField label="학원명" type="text" name="userName" value={this.state.userName} onChange={this.handleValueChange} /><br/>
+              <TextField label="학원종류" type="text" name="Type" value={this.state.Type} onChange={this.handleValueChange} /><br/>
+              <TextField label="분야" type="text" name="major" value={this.state.major} onChange={this.handleValueChange} /><br/>
+              <TextField label="주소" type="text" name="address" value={this.state.address} onChange={this.handleValueChange} /><br/>
+              <TextField label="전화번호" type="text" name="phone" value={this.state.phone} onChange={this.handleValueChange} /><br/>
+              </DialogContent>
+            <DialogActions>
+              <Button variant="contained" color="primary" onClick={this.handleFormSubmit}>추가</Button>
+              <Button variant="outlined" color="primary" onClick={this.handleClose}>닫기</Button>
+            </DialogActions>
+          </Dialog>
+        </div>
+      )
     }
+  }
 
-}
 export default withStyles(styles)(CustomerAdd);
