@@ -134,7 +134,7 @@ class CustomerAdd extends React.Component {
               <TextField label="전화번호" type="text" name="phone" value={this.state.phone} onChange={this.handleValueChange} /><br/>
               </DialogContent>
             <DialogActions>
-              <Button variant="contained" color="primary" onClick={this.handleFormSubmit}>추가</Button>
+              <Button variant="contained" color="primary" onClick={this.handleFomrSumit}>추가</Button>
               <Button variant="outlined" color="primary" onClick={this.handleClose}>닫기</Button>
             </DialogActions>
           </Dialog>

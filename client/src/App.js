@@ -150,7 +150,7 @@ class App extends Component {
           return c.name.indexOf(this.state.searchKeyword) > -1;
       });
       return data.map((c) => {
-        return <Customer stateRefresh={this.stateRefresh} key={c.id} id={c.id} image={c.image} name={c.name} day={c.day} gender={c.gender} job={c.job} address={c.address} />
+        return <Customer stateRefresh={this.stateRefresh} key={c.id} id={c.id} image={c.image} name={c.name} Type={c.Type} major={c.major} address={c.address} phone = {c.phone} />
       });
     }
     const { classes } = this.props;
@@ -213,3 +213,4 @@ class App extends Component {
 }
 
 export default withStyles(styles)(App);
+

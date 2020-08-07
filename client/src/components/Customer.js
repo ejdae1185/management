@@ -11,10 +11,10 @@ render(){
                 <TableCell> {this.props.id} </TableCell>
                 <TableCell> <img src ={this.props.image} alt= "profile"></img> </TableCell>
                 <TableCell> {this.props.name} </TableCell>
-                <TableCell> {this.props.day} </TableCell>
-                <TableCell> {this.props.gender} </TableCell>
-                <TableCell> {this.props.job} </TableCell>
-                <TableCell> {this.props.adress} </TableCell>
+                <TableCell> {this.props.Type} </TableCell>
+                <TableCell> {this.props.major} </TableCell>
+                <TableCell> {this.props.address} </TableCell>
+                <TableCell> {this.props.phone} </TableCell>
         <TableCell><CustomerDelete stateRefresh={this.props.stateRefresh} id={this.props.id}/></TableCell>
 
         </TableRow>
